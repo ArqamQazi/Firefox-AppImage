@@ -6,21 +6,25 @@ ARCH=$(uname -m)
 
 echo "Installing package dependencies..."
 echo "---------------------------------------------------------------"
-# pacman -Syu --noconfirm PACKAGESHERE
+pacman -Syu --noconfirm libcanberra
 
 echo "Installing debloated packages..."
 echo "---------------------------------------------------------------"
-get-debloated-pkgs --add-common --prefer-nano
+get-debloated-pkgs --add-common --prefer-nano intel-media-driver-mini ffmpeg-mini
 
-# Comment this out if you need an AUR package
-#make-aur-package PACKAGENAME
+echo "Downloading Firefox..."
+echo "---------------------------------------------------------------"
+case "$ARCH" in
+	x86_64)  farch=linux64;;
+	aarch64) farch=linux64-aarch64;;
+esac
 
-# If the application needs to be manually built that has to be done down here
+TARBALL_LINK=$(curl -sI "https://download.mozilla.org/?product=firefox-latest-ssl&os=$farch&lang=en-US" | grep -i '^location:' | awk '{print $2}' | tr -d '\r')
 
-# if you also have to make nightly releases check for DEVEL_RELEASE = 1
-#
-# if [ "${DEVEL_RELEASE-}" = 1 ]; then
-# 	nightly build steps
-# else
-# 	regular build steps
-# fi
+wget --retry-connrefused --tries=30 "$TARBALL_LINK" -O ./"${TARBALL_LINK##*/}"
+
+mkdir -p ./AppDir/bin
+tar -xvf ./"${TARBALL_LINK##*/}"
+mv -v ./firefox/* ./AppDir/bin
+
+echo "$TARBALL_LINK" | grep -oP 'releases/\K[0-9.]+' > ~/version
