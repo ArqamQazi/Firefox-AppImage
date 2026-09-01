@@ -4,6 +4,7 @@
 
 [![GitHub Downloads](https://img.shields.io/github/downloads/pkgforge-dev/Firefox-AppImage/total?logo=github&label=GitHub%20Downloads)](https://github.com/pkgforge-dev/Firefox-AppImage/releases/latest)
 [![CI Build Status](https://github.com/pkgforge-dev/Firefox-AppImage/actions/workflows/appimage.yml/badge.svg)](https://github.com/pkgforge-dev/Firefox-AppImage/releases/latest)
+[![AnyLinux](https://img.shields.io/badge/AnyLinux-compatible-green?logo=linux&logoColor=white)](https://pkgforge-dev.github.io/Anylinux-AppImages/)
 [![Latest Stable Release](https://img.shields.io/github/v/release/pkgforge-dev/Firefox-AppImage)](https://github.com/pkgforge-dev/Firefox-AppImage/releases/latest)
 
 <p align="center">
