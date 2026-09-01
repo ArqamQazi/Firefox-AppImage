@@ -14,7 +14,7 @@
 
 | Latest Stable Release | Upstream URL |
 | :---: | :---: |
-| [Click here](https://github.com/pkgforge-dev/Firefox-AppImage/releases/latest) | [Click here](https://www.mozilla.org/firefox) |
+| [Download](https://github.com/pkgforge-dev/Firefox-AppImage/releases/latest) | [Click here](https://www.mozilla.org/firefox) |
 
 </div>
 
